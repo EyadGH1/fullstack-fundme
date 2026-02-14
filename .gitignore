@@ -1,0 +1,19 @@
+# Foundry
+out/
+cache/
+broadcast/
+sync/
+
+# Node / React
+node_modules/
+dist/
+.eslintcache
+
+# Environment Variables (CRITICAL)
+.env
+*.pem
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store

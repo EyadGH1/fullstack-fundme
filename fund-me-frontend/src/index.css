@@ -1,0 +1,21 @@
+:root {
+  --primary: #00f2fe;
+  --secondary: #4facfe;
+  --bg: #0b0e11;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --text: #ffffff;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.08) 0%, transparent 25%),
+    radial-gradient(circle at 90% 80%, rgba(79, 172, 254, 0.08) 0%, transparent 25%);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,201 @@
+/* --- Global Reset & Variables --- */
+:root {
+  --primary-neon: #00f2fe;
+  --secondary-neon: #4facfe;
+  --error-red: #ff4f4f;
+  --bg-dark: #0d1117;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-main: #ffffff;
+  --text-dim: #888888;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.08) 0%, transparent 25%),
+    radial-gradient(circle at 85% 85%, rgba(79, 172, 254, 0.08) 0%, transparent 25%);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+/* --- Header & Branding --- */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 20px 0;
+}
+
+/* --- Card Styles (Glassmorphism) --- */
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  padding: 35px;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 24px;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Labels & Values --- */
+.pool-label {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.pool-value {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 15px 0 35px 0;
+  color: var(--text-main);
+}
+
+/* --- Layout Elements --- */
+.input-group {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.getter-row {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+/* --- Form Controls --- */
+input {
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 16px;
+  color: white;
+  font-size: 1.1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: var(--primary-neon);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+}
+
+/* --- Buttons --- */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-connect {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 12px 24px;
+  border: 1px solid var(--glass-border);
+  margin: 0 auto;
+}
+
+.btn-fund {
+  background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+  color: #000;
+  padding: 16px 30px;
+  min-width: 120px;
+  box-shadow: 0 4px 20px rgba(0, 242, 254, 0.3);
+}
+
+.btn-withdraw {
+  background: transparent;
+  border: 1px solid rgba(255, 79, 79, 0.4);
+  color: var(--error-red);
+  width: 100%;
+  padding: 18px;
+  font-size: 1.1rem;
+}
+
+button:hover:not(:disabled) {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+/* --- Results & Text --- */
+.result-text {
+  font-family: 'JetBrains Mono', monospace; /* Good for addresses */
+  font-size: 0.85rem;
+  color: var(--primary-neon);
+  word-break: break-all;
+  margin: 10px 0 0 0;
+  min-height: 1.2em;
+  opacity: 0.9;
+}
+
+.inspector h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.2rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-section {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.note {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-top: 15px;
+  text-align: center;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+  header h1 { font-size: 2.2rem; }
+  .pool-value { font-size: 2.5rem; }
+  .card { padding: 20px; }
+  .input-group { flex-direction: column; }
+}
