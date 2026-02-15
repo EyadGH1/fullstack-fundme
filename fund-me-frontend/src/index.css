@@ -1,21 +1,39 @@
-:root {
-  --primary: #00f2fe;
-  --secondary: #4facfe;
-  --bg: #0b0e11;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --text: #ffffff;
+/* 1. FONT IMPORTS FIRST */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@300;400;600;700&display=swap');
+
+/* 2. TAILWIND ENGINE SECOND */
+@import "tailwindcss";
+
+/* 3. THEME CONFIGURATION THIRD */
+@theme {
+  --font-serif: "Instrument Serif", serif;
+  --font-sans: "Inter", sans-serif;
+  --color-magic-purple: #6366f1;
+  --color-magic-dark: #030014;
+  --color-magic-indigo: #4facfe;
+  --color-magic-cyan: #00f2fe;
 }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.08) 0%, transparent 25%),
-    radial-gradient(circle at 90% 80%, rgba(79, 172, 254, 0.08) 0%, transparent 25%);
-  color: var(--text);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* 4. BASE STYLES & BACKGROUND */
+@layer base {
+  body {
+    @apply bg-magic-dark text-white font-sans antialiased;
+    background-image: 
+      radial-gradient(circle at 80% 10%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+      radial-gradient(circle at 15% 85%, rgba(0, 242, 254, 0.08) 0%, transparent 40%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+/* 5. UTILITIES */
+@utility magic-card {
+  @apply bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[32px] p-8 shadow-2xl transition-all duration-500;
+  &:hover {
+    @apply border-white/20 bg-white/[0.05];
+  }
+}
+
+@utility btn-magic-gradient {
+  @apply bg-gradient-to-r from-magic-purple to-magic-indigo text-white px-8 py-3 rounded-full font-semibold text-sm transition-all duration-300 active:scale-95 shadow-lg shadow-magic-purple/20 hover:brightness-110;
 }
